@@ -8,6 +8,7 @@ import { ConfigModule } from '../config/config.module';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {
+        console.log(configService.get('DB_STRING'));
         return {
           uri: configService.get('DB_STRING'),
         };
